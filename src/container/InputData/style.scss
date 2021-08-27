@@ -1,0 +1,80 @@
+.input-data-container {
+  padding: 15px;
+  .table-item-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    .input-name {
+      margin-right: 10px;
+      width: 200px;
+    }
+    .input-count {
+      margin-right: 10px;
+      width: 60px;
+    }
+
+    .icon-delete {
+      color: #ff4d4f;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  }
+
+  .rbc-calendar {
+    height: calc(100vh - 192px) !important;
+  }
+  .rbc-header {
+    height: 28px !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-weight: bold;
+    font-size: var(--size-14);
+    text-transform: uppercase;
+    color: #95a5bb;
+    background: #ebf3ff;
+  }
+
+  .rbc-today {
+    background: #dceaff;
+  }
+
+  .rbc-off-range-bg {
+    background: #f6f8ff !important;
+    color: #bbc7d7 !important;
+  }
+
+  .rbc-event,
+  .rbc-day-slot .rbc-background-event {
+    background: transparent;
+  }
+  .rbc-event.rbc-selected,
+  .rbc-day-slot .rbc-selected.rbc-background-event {
+    background: transparent;
+    border: none;
+  }
+
+  .rbc-show-more {
+    padding: 0 5px;
+    border-radius: 4px;
+    height: 22px;
+    line-height: 22px;
+    font-size: var(--size-12);
+    background: transparent;
+  }
+
+  .custom-rbg-event-item {
+    // background: #1e69c0;
+    border-radius: 4px;
+    padding: 0 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .col-title {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+}
