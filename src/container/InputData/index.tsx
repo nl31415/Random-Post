@@ -150,7 +150,7 @@ const InputData: FC = () => {
       }
     });
 
-    let date = new Date();
+    let date = selectedDate;
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let firstDay = 1;
@@ -233,6 +233,57 @@ const InputData: FC = () => {
     );
   };
 
+  const Toolbar = () => {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginBottom: "20px",
+          alignItems: "center",
+        }}
+      >
+        <div>
+          <Button
+            onClick={() => {
+              setSelectedDate(
+                new Date(
+                  moment(selectedDate)
+                    .subtract(1, "months")
+                    .startOf("month")
+                    .format("YYYY-MM-DD")
+                )
+              );
+            }}
+          >
+            Prev
+          </Button>
+
+          <Button
+            onClick={() => {
+              setSelectedDate(
+                new Date(
+                  moment(selectedDate)
+                    .add(1, "months")
+                    .startOf("month")
+                    .format("YYYY-MM-DD")
+                )
+              );
+            }}
+          >
+            Next
+          </Button>
+        </div>
+
+        <div style={{ fontSize: "16px", fontWeight: 700 }}>
+          {moment(selectedDate).format("MM-YYYY")}
+        </div>
+      </div>
+    );
+  };
+
+  const [selectedDate, setSelectedDate] = useState<any>(new Date());
+
   return (
     <div className="input-data-container">
       <Row>
@@ -265,11 +316,12 @@ const InputData: FC = () => {
             endAccessor="end"
             views={[Views.MONTH]}
             style={{ height: 500 }}
-            date={new Date()}
+            date={selectedDate}
             popup
             popupOffset={30}
             components={{
-              toolbar: () => null,
+              toolbar: Toolbar,
+              // toolbar: () => null,
               event: EventElement,
             }}
             formats={{
